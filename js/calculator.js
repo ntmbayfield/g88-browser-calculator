@@ -1,13 +1,6 @@
-let calc = {
-  '+': function(x, y){return x + y},
-  '-': function(x, y){return x - y},
-  '÷': function(x, y){return x / y},
-  'x': function(x, y){return x * y}
-}
-
 const calculator = {};
 
-// set up function for possible math operations:
+//create functions for standard math operations:
 calculator.add = function (a, b) {
   return a + b;
 }
@@ -29,5 +22,5 @@ calculator.divide = function(a, b) {
 }
 
 calculator.clear = function() {
-  return ''
+  return '';
 }
