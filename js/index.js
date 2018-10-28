@@ -1,26 +1,56 @@
-var buttonContainer = document.getElementById('buttons-container')
+// get document ready onload
+window.onload = function() {
+  calculate();
+}
 
-var buttons = document.getElementsByTagName('span')
+// set up global variables
+const numbersBtn = document.querySelectorAll('span')
+const display = document.getElementById('screen');
+const clearBtn = document.getElementById('clear');
+const equalsBtn = document.getElementById('equals');
 
-var readOut = document.getElementById('screen')
+// function to calculate simple operations
+function calculate(){
+  numbersBtn.forEach(function(input) {
+    input.addEventListener('click', function() {
+      // array with valid operators
+      let validOperators = ['+', '-', 'x', '÷'];
 
-var operator = document.getElementsByClassName('operator')
-
-document.addEventListener('DOMContentLoaded',function(){
-  for (let i = 0; i < buttons.length; i++){
-    buttons[i].addEventListener('click', function(){
-      if(buttons[i].textContent === 'C'){
-        readOut.textContent = ''
-        return
+      if (input.id !== 'clear' && input.id !== 'equals') {
+        display.textContent += input.textContent;
       }
-      else if(buttons[i].textContent === '='){
-        let art = readOut.textContent.match(/(\d+)([+\-\x\÷])(\d+)/)
 
-        readOut.textContent = calc[art[2]](parseInt(art[1]), parseInt(art[3]))
-        return
+      if (input.id === 'equals') {
+        validOperators.forEach(function(operator) {
+          if((display.textContent).includes(operator)) {
+            let result = (display.textContent).split(operator);
+            let numA = parseInt(result[0]);
+            let numB = parseInt(result[1]);
+
+            if (display.textContent === 'NaN') {
+              display.textContent = 'Error';
+            }
+
+            if (operator === '+') {
+              display.textContent = calculator.add(numA, numB);
+            }
+
+            if (operator === '-') {
+              display.textContent = calculator.substract(numA, numB);
+            }
+
+            if (operator === 'x') {
+              display.textContent = calculator.multiply(numA, numB);
+            }
+
+            if (operator === '÷') {
+              display.textContent = calculator.divide(numA, numB);
+            }
+          }
+        })
+      } else if (input.id === 'clear') {
+        display.textContent = calculator.clear();
       }
-
-      else readOut.append(event.target.textContent)
     })
-  }
-})
+  })
+}
