@@ -1,0 +1,19 @@
+{
+  "name": "browser-calculator",
+  "version": "1.0.0",
+  "description": "Use DOM Manipulation to build a basic calculator using the provided HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntmbayfield/browser-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntmbayfield/browser-calculator/issues"
+  },
+  "homepage": "https://github.com/ntmbayfield/browser-calculator#readme"
+}
